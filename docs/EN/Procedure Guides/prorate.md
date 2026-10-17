@@ -80,6 +80,8 @@ The set of `edits` must have a hierarchical structure. That is, there must be on
 * *Sub-totals*: All other variables that appear as a total in one equation must appear as a component in another equation.
 * In the complete set of `edits`, each variable can appear at most two times: once as a component *x<sub>i</sub>* and once as a total *y*.
 
+Because modifier codes are single letters, variables named `a`, `i`, `n` or `o` (in any case) cannot be used in prorate `edits`; the edits fail to parse. Rename such variables before calling the procedure.
+
 Weights *w<sub>i</sub>* are optional. They must be a positive number; if not assigned to a variable, a default weight of one is applied. Weights can be used to control the relave amount of change in each component due to prorating, change being inversely proportional to the assigned weight. Weights are only assigned to the components, not the total.
 
 Modifier codes *m<sub>i</sub>* are optional. Similar to weights, they can be assigned to individual variables, specified after the variable name and separated by a colon. Modifiers determine which variables are eligible for prorating. They behave in the same way as the global parameter `modifier`. The permitted codes are:
