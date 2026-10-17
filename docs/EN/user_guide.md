@@ -195,7 +195,7 @@ Use the `edits` parameter to specify a list of edits, following these rules:
     * `>=` (greater than or equal to)
     * `>` (greater than)
 * Within an individual edit, one or more *components* must appear on each side of an operator, separated by `+` or `-`. A component can be a `constant`, a `variable` found on `indata`, or a constant and variable multiplied together: `constant * variable` or `variable * constant`. When multiplying constants and variables, they must be separated by an asterisk `*`.
-* Optionally, users may add a `modifier` at the beginning of an individual edit, followed by a colon `:`. Acceptable modifiers are `pass` or `fail` and are not case sensitive.
+* Optionally, users may add a `modifier` at the beginning of an individual edit, followed by a colon `:`. Acceptable modifiers are `pass` or `fail` and are not case sensitive. (The French equivalents `accepte` and `rejet` are also accepted, as synonyms of `pass` and `fail` respectively.)
 
 A simple example with three edits specified on one line:
 
