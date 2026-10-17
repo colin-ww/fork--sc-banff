@@ -13,7 +13,7 @@ The `massimp` procedure is intended for use when a large block of variables is m
 
 Mass imputation considers a recipient any record for which all the variables to impute (`must_impute`) are missing on `indata`, and considers a donor any record for which none of the listed variables are missing. Records with some, but not all, of the `must_impute` variables missing are neither recipients nor donors; they are dropped before processing. If matching fields (`must_match`) are provided by the user, the `massimp` procedure uses them to find the nearest donor using the same distance function as `donorimp`. If matching fields are not provided, a donor is selected at random.
 
-Unlike `donorimp`, the `massimp` procedure does not use edits. Before running the procedure, users should ensure that the pool of potential donors do not include any errors, including outliers or consistency errors.
+Unlike `donorimp`, the `massimp` procedure does not use edits. Before running the procedure, users should ensure that the pool of potential donors do not include any errors, including outliers or consistency errors. For the same reason, `massimp` has no donor exclusion options (`data_excl_var` and `exclude_where_indata` exist in `donorimp`, and in `estimator` to exclude records from parameter calculation): a record can only be kept out of the donor pool by removing it from `indata` before the call (note that it can then no longer be a recipient either).
 
 Users may create by-groups by specifying `by` variables. These by-groups act as imputation classes. Use the `min_donors` and `percent_donors` parameters to ensure an appropriate number or ratio of recipients and donors exist in each imputation class before performing imputation.
 
