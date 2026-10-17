@@ -142,7 +142,7 @@ class ProcDonorimp(BanffProcedure):
         :type no_by_stats: bool | None, optional
         :param min_donors: Minimum number of donors needed in a by-group to perform imputation. Default=30.
         :type min_donors: int | None, optional
-        :param percent_donors: Minimum percentage of donors needed in a by-group to perform imputation (between 1 and 100). Default=30.
+        :param percent_donors: Minimum percentage of donors needed in a by-group to perform imputation (at least 1 and less than 100). Default=30.
         :type percent_donors: float | None, optional
         :param n: Maximum number of donors to try for a given recipient. Mandatory.
         :type n: int | None, optional

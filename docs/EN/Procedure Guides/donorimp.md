@@ -52,7 +52,7 @@ For details on the content of output tables, please see the [Output Tables](../o
 | edits               | str          | List of consistency edits. Mandatory. <br><br> Example: `"Revenue - Expenses = Profit; Revenue >= 0; Expenses >= 0;"` |
 | post_edits          | str          | List of edits a recipient must satisfy after imputation. <br><br> If not specified, `edits` are used as the post-imputation edits. |
 | min_donors          | int          | Minimum number of donors needed in a by-group to perform imputation. Default=30. |
-| percent_donors      | float        | Minimum percentage of donors needed in a by-group to perform imputation (between 1 and 100). Default=30. |
+| percent_donors      | float        | Minimum percentage of donors needed in a by-group to perform imputation (at least 1 and less than 100). Default=30. |
 | n                   | int          | Maximum number of donors to try for a given recipient. Mandatory. |
 | eligdon             | str          | Identify eligible donors as 'ANY' (include all potential donors) or 'ORIGINAL' (exclude records with imputed values). Default='ORIGINAL'. <br><br> Not case sensitive; the first letter alone ('A' or 'O') is also accepted. Any other value results in an error. |
 | n_limit             | int          | Limit the number of times a donor can be used. <br><br> See [Limiting the repeated use of donors](#limiting-the-repeated-use-of-donors). |
