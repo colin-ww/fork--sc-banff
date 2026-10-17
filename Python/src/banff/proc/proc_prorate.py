@@ -101,7 +101,7 @@ class ProcProrate(BanffProcedure):
         :type verify_edits: bool | None, optional
         :param lower_bound: Lower bound on the relative change of the variables. Default = 0.
         :type lower_bound: float | None, optional
-        :param upper_bound: Upper bound on the relative change of the variables.
+        :param upper_bound: Upper bound on the relative change of the variables. Default is no upper limit.
         :type upper_bound: float | None, optional
         :param decimal: Number of decimals used in the rounding algorithm (between 0 and 9). Default=0.
         :type decimal: int | None, optional
@@ -109,7 +109,7 @@ class ProcProrate(BanffProcedure):
         :type edits: str | None, optional
         :param method: Prorating method ("SCALING" or "BASIC"). Default = "BASIC".
         :type method: str | None, optional
-        :param modifier: Global modifier ("ALWAYS", "IMPUTED", "ORIGINAL") to control which values are prorated. Default = "ALWAYS"
+        :param modifier: Global modifier ("ALWAYS", "IMPUTED", "NEVER", "ORIGINAL") to control which values are prorated. Default = "ALWAYS"
         :type modifier: str | None, optional
         :param unit_id: Identify key variable (unit identifier) on indata. Mandatory.
         :type unit_id: str | None, optional

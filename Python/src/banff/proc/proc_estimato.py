@@ -104,9 +104,9 @@ class ProcEstimato(BanffProcedure):
         :type unit_id: str | None, optional
         :param by: Variable(s) used to partition indata into by-groups for independent processing.
         :type by: str | None, optional
-        :param data_excl_var: Variable of the input table used to exclude observations from the set of acceptable observations.
+        :param data_excl_var: Variable of the input table used to exclude observations from the set of acceptable observations. Must be a string column; an observation is excluded when the value is exactly ``'E'`` (any other value is ignored).
         :type data_excl_var: str | None, optional
-        :param hist_excl_var: Variable of the historical input table used to exclude historical observations from the set of acceptable observations.
+        :param hist_excl_var: Variable of the historical input table used to exclude historical observations from the set of acceptable observations. Must be a string column; an observation is excluded when the value is exactly ``'E'`` (any other value is ignored).
         :type hist_excl_var: str | None, optional
         :param seed: Specify the root for the random number generator.
         :type seed: int | None, optional

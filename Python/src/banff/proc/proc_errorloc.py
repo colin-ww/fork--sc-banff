@@ -93,7 +93,7 @@ class ProcErrorloc(BanffProcedure):
         :type weights: str | None, optional
         :param cardinality: Specify the maximum cardinality.
         :type cardinality: float | None, optional
-        :param time_per_obs: Specify the maximum processing time allowed per observation.
+        :param time_per_obs: Specify the maximum processing time allowed per observation, in seconds. Default=20.
         :type time_per_obs: float | None, optional
         :param seed: Specify the root for the random number generator.
         :type seed: int | None, optional

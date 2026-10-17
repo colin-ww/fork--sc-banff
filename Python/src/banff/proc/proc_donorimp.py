@@ -122,9 +122,9 @@ class ProcDonorimp(BanffProcedure):
         :type by: str | None, optional
         :param must_match: List of variables on indata to be used in distance calculations.
         :type must_match: str | None, optional
-        :param data_excl_var: Identify donor exclusion variable on indata.
+        :param data_excl_var: Identify donor exclusion variable on indata. Must be a string column; a record is excluded from the donor pool when the value is exactly ``'E'`` (any other value is ignored). Recipients are never excluded.
         :type data_excl_var: str | None, optional
-        :param rand_num_var: Identify random number variable on indata.
+        :param rand_num_var: Identify random number variable on indata. Numeric, values between 0 and 1, unique for each record.
         :type rand_num_var: str | None, optional
         :param random: Randomly select donors for recipients without matching fields.
         :type random: bool | None, optional
@@ -140,13 +140,13 @@ class ProcDonorimp(BanffProcedure):
         :type accept_negative: bool | None, optional
         :param no_by_stats: Reduces log output by suppressing by-group specific messages. Default=False.
         :type no_by_stats: bool | None, optional
-        :param min_donors: Minimum number of donors needed in a by-group to perform imputation.
+        :param min_donors: Minimum number of donors needed in a by-group to perform imputation. Default=30.
         :type min_donors: int | None, optional
-        :param percent_donors: Minimum percentage of donors needed in a by-group to perform imputation.
+        :param percent_donors: Minimum percentage of donors needed in a by-group to perform imputation (between 1 and 100). Default=30.
         :type percent_donors: float | None, optional
-        :param n: Maximum number of donors to try for a given recipient.
+        :param n: Maximum number of donors to try for a given recipient. Mandatory.
         :type n: int | None, optional
-        :param eligdon: Identify eligible donors as 'ANY' (include all potential donors) or 'ORIGINAL' (exclude records with imputed values).
+        :param eligdon: Identify eligible donors as 'ANY' (include all potential donors) or 'ORIGINAL' (exclude records with imputed values). Default='ORIGINAL'.
         :type eligdon: str | None, optional
         :param n_limit: Limit the number of times a donor can be used.
         :type n_limit: int | None, optional
