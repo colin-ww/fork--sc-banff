@@ -120,9 +120,9 @@ class ProcOutlier(BanffProcedure):
         :type accept_zero: bool | None, optional
         :param outlier_stats: Add more information to outstatus_detailed output table, including imputation and exclusion interval bounds. Default=False.
         :type outlier_stats: bool | None, optional
-        :param beta_e: SG multiplier for exclusion interval (non-negative).
+        :param beta_e: SG multiplier for exclusion interval (positive).
         :type beta_e: float | None, optional
-        :param beta_i: SG multiplier for imputation interval (non-negative).
+        :param beta_i: SG multiplier for imputation interval (positive).
         :type beta_i: float | None, optional
         :param exponent: HB exponent for a ratio or historical trend (between 0 and 1). Default=0.
         :type exponent: float | None, optional
@@ -134,7 +134,7 @@ class ProcOutlier(BanffProcedure):
         :type mii: float | None, optional
         :param start_centile: SG centile to be used to determine the starting point (between 0 and 100). Default=75 for 'side="BOTH"', 0 otherwise.
         :type start_centile: float | None, optional
-        :param min_obs: Minimum number of observations that must exist in the input table or in a by-group (positive). Default=3 for HB, 5 for SG.
+        :param min_obs: Minimum number of observations that must exist in the input table or in a by-group (positive). Default=10. Minimum value is 3 for HB and 5 for SG.
         :type min_obs: int | None, optional
         :param method: Method to be used to detect outlying observations ('CURRENT', 'RATIO', 'HISTORIC' or 'SIGMAGAP'). Mandatory.
         :type method: str | None, optional

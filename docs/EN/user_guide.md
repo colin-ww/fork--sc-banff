@@ -140,7 +140,7 @@ Selection and imputation flags are always associated with individual values on `
 | ------------              | ----------- |
 | <nobr>\<unit-id\></nobr>  | Record identifier (i.e., row) to which the status flag applies. (The actual column header is the name of the variable by the `unit_id` parameter.) |
 | `FIELDID`                   | Field identifier (i.e., column) to which the status flag applies.   |
-| `STATUS`                    | Status flag such as "FTI", "FTE", or "IDN".                         |
+| `STATUS`                    | Status flag such as "FTI", "FTE", or "IDN". Status flags are case sensitive and must be written in capital letters on `instatus`; a flag such as "fti" is not recognized, and no warning is given. (Values of `FIELDID` are not case sensitive.) |
 | `VALUE`                     | Value of the variable when the status code was generated. For procedures performing selection (`errorloc` and `outlier`), this column reflects the value of the observation on `indata` when selection occurred. For procedures performing treatment (`deterministic`, `donorimp`, `estimator`, `prorate`, `massimp`), this column reflects the value of the observation on `outdata`, after treatment has occurred. |
 
 All procedures performing selection or treatment functions (i.e., all but `verifyedits` and `editstats`) automatically produce output status files labelled `outstatus` containing selection or imputation flags. Some procedures also read status files as inputs (`instatus`); these may be required, depending on the procedure. A brief summary of the behaviour of each procedure with respect to status files is included in the table below.
@@ -195,7 +195,7 @@ Use the `edits` parameter to specify a list of edits, following these rules:
     * `>=` (greater than or equal to)
     * `>` (greater than)
 * Within an individual edit, one or more *components* must appear on each side of an operator, separated by `+` or `-`. A component can be a `constant`, a `variable` found on `indata`, or a constant and variable multiplied together: `constant * variable` or `variable * constant`. When multiplying constants and variables, they must be separated by an asterisk `*`.
-* Optionally, users may add a `modifier` at the beginning of an individual edit, followed by a colon `:`. Acceptable modifiers are `pass` or `fail` and are not case sensitive.
+* Optionally, users may add a `modifier` at the beginning of an individual edit, followed by a colon `:`. Acceptable modifiers are `pass` or `fail` and are not case sensitive. (The French equivalents `accepte` and `rejet` are also accepted, as synonyms of `pass` and `fail` respectively.)
 
 A simple example with three edits specified on one line:
 
@@ -303,6 +303,8 @@ Many Banff procedure parameters reference variables (i.e., columns) from input t
 
 * Variable names cannot exceed 64 characters in length.
 * Variable names must be unique within an individual input table. (The same variable can appear on multiple input tables without issue.)
+* The variable referenced by `unit_id` must be a string (character) column. A numeric `unit_id` results in a validation error; convert it to string before calling the procedure.
+* In `edits`, the words `pass`, `fail`, `accepte` and `rejet` (in any case) are reserved as modifiers and cannot be used as variable names.
 
 Common Banff parameters that reference variables include `unit_id`, `var`, `weights`, and `by`. They are simply referenced by their variable name, and lists of two or more variables are separated by a single space. For example:
 

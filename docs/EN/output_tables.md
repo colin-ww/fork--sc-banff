@@ -250,7 +250,8 @@ Mapping of recipient/donor pairs.
 | ----------------- | ----------- |
 | RECIPIENT         | Recipient identifier.     |
 | DONOR             | Donor identifier.   |
-| NUMBER_OF_ATTEMPTS | Number of donors tried before the recipient passed the postedits. |
+| NUMBER_OF_ATTEMPTS | Number of donors tried before the recipient passed the postedits. It will not be greater than the parameter `n`, unless some donors are found at the same distance from the recipient. It is 0 if the donor was selected randomly. |
+| DONORLIMIT        | Maximum number of times a donor can be used, as calculated from the `n_limit` and `mrl` parameters (same value for all records in a by-group). Blank if neither parameter was specified. See [Limiting the repeated use of donors](./Procedure%20Guides/donorimp.md#limiting-the-repeated-use-of-donors). |
 | DONORLIMIT        | Reproduces the value of the `n_limit` parameter (same value for all records).   |
 
 # estimator
@@ -344,4 +345,4 @@ Mapping of recipient/donor pairs.
 | RECIPIENT         | Recipient identifier.     |
 | DONOR             | Donor identifier.   |
 | NUMBER_OF_ATTEMPTS | Can take on one of two possible values: (1) if the donor was selected by the nearest neighbour method or (0) if it was selected randomly.  |
-| DONORLIMIT        | Reproduces the value of `n_limit` parameter (same value for all records).   |
+| DONORLIMIT        | Maximum number of times a donor can be used, as calculated from the `n_limit` and `mrl` parameters (same value for all records in a by-group). Blank if neither parameter was specified. See [Limiting the repeated use of donors](./Procedure%20Guides/massimp.md#limiting-the-repeated-use-of-donors). |
